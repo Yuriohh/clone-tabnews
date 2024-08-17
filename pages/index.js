@@ -7,4 +7,8 @@ function Home() {
   );
 }
 
+function Teste() {
+  console.log();
+}
+
 export default Home;
