@@ -8,7 +8,6 @@ async function fetchApi(key) {
 }
 
 export default function StatusPage() {
-
   return (
     <>
       <h1>Status</h1>
@@ -19,14 +18,18 @@ export default function StatusPage() {
 }
 
 function UpdatedAt() {
-  const { isLoading, data } = useSWR("http://localhost:3000/api/v1/status", fetchApi, {
-    refreshInterval: 2000,
-  });
+  const { isLoading, data } = useSWR(
+    "http://localhost:3000/api/v1/status",
+    fetchApi,
+    {
+      refreshInterval: 2000,
+    },
+  );
 
-  let updatedAtText = 'Carregando...';
+  let updatedAtText = "Carregando...";
 
   if (!isLoading && data) {
-    updatedAtText = new Date(data.updated_at).toLocaleString('pt-BR');
+    updatedAtText = new Date(data.updated_at).toLocaleString("pt-BR");
   }
 
   return (
@@ -37,11 +40,15 @@ function UpdatedAt() {
 }
 
 function DatabaseStatus() {
-  const { isLoading, data } = useSWR('http://localhost:3000/api/v1/status', fetchApi, {
-    refreshInterval: 2000,
-  });
+  const { isLoading, data } = useSWR(
+    "http://localhost:3000/api/v1/status",
+    fetchApi,
+    {
+      refreshInterval: 2000,
+    },
+  );
 
-  let databaseStatusInformation = 'Carregando...';
+  let databaseStatusInformation = "Carregando...";
 
   if (!isLoading && data) {
     databaseStatusInformation = (
